@@ -1,0 +1,32 @@
+{% extends 'common.html' %}
+
+{% block title %}
+Home page
+{% endblock title %}
+
+{% block body %}
+
+<style>
+    .mar {
+        color : red; 
+        height : 100%;
+        width : 100%;
+    }
+</style>
+
+<marquee behavior="scroll" class="mar" direction="left">
+    <b>
+        Stay alert and safe!
+    </b>
+</marquee>
+
+<div class="col-xl-12 text-center">
+  {% if user.is_authenticated %}
+    <h2><b>Welcome, {{ user.username }} to the best website in the world!!!</b></h2>
+  {% else %}
+    <h2><b>Welcome to the best website in the world!!!</b></h2>
+  {% endif %}
+</div>
+
+{% endblock body %}
+

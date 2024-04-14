@@ -1,0 +1,16 @@
+<!-- user_search.html -->
+<form method="POST" action="{% url 'search' %}">
+    {% csrf_token %}
+    <input type="text" name="pincode" placeholder="Enter Pincode" required>
+    <button type="submit">Search</button>
+  </form>
+  
+  {% if user %}
+    <h2>Search Results:</h2>
+    <ul>
+      {% for user in user %}
+        <li>{{ user.username }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  

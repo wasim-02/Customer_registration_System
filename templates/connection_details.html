@@ -1,0 +1,111 @@
+{% extends 'common.html' %}
+
+{% block title %}
+Home page
+{% endblock title %}
+
+{% block body %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="static/js/connection.js"></script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link href="static/css/connection.css" rel="stylesheet" />
+<style>
+    .breadcrumb 
+    {
+      background-color: #f2f2f2;
+      padding: 10px;
+      border-radius: 5px;
+    }
+</style>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb py-2">
+        <li class="breadcrumb-item">
+            <a href="index.html">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="connection.html">New Connection</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Connection Details
+        </li>
+    </ol>
+</nav>
+
+<div class="container-fluid px-0 mb-3">
+    <h2 class="text-center">Registartion Form </h2>
+
+    <form method="post" action="/connection_details">
+        {% csrf_token %}
+        <div class="container ">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+            </div>
+            <div class="mb-3">
+                <label for="pincode" class="form-label">Pincode</label>
+                <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode">
+            </div>
+            <div class="mb-3">
+                <label for="zone" class="form-label">Zone</label>
+                <select class="form-control" id="zone" name="zone">
+                    <option value="0">Select zone:</option>
+                    <option value="GEC1">GEC1</option>
+                    <option value="GEC2">GEC2</option>
+                    <option value="Rangia">Rangia</option>
+                    <option value="Bongaigaon">Bongaigaon</option>
+                    <option value="Mangaldai">Mangaldai</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="division" class="form-label">Division</label>
+                <input type="division" class="form-control" id="division" name="division" placeholder="Division">
+                <div class="custom-select" style="width:200px;" required="required" onchange="giveSelection(this.value)">
+                    <select>
+                        <option value="Division">-Select-</option>
+                        <option value="BarpetaED">BarpetaED</option>
+                        <option value="BongaigaonED">BongaigaonED</option>
+                        <option value="CharialiED">CharialiED</option>
+                    </select>
+                  </div>
+            </div>
+            <div class="mb-3">
+                <label for="subdivision" class="form-label">SubDivision</label>
+                <input type="subdivision" class="form-control" id="subdivision" name="subdivision" placeholder="SubDivision">
+                
+                    <select>
+                        <option data-option="BarpetaED">-Select-</option>
+                        <option data-option="BarpetaED">BarpetaESD</option>
+                        <option data-option="BarpetaED">BarpetaED ROAD</option>
+                        <option data-option="BarpetaED">SARTHEBARI</option>
+                        <option data-option="BarpetaED">SORBHOG</option>
+              
+                        <option data-option="BongaigaonED">-Select-</option>
+                        <option data-option="BongaigaonED">ABHAYAPURI</option>
+                        <option data-option="BongaigaonED">BIJNI</option>
+                        <option data-option="BongaigaonED">Bongaigaon1</option>
+                        <option data-option="BongaigaonED">Bongaigaon2</option>
+              
+                        <option data-option="CharialiED">-Select-</option>
+                        <option data-option="CharialiED">Chariali</option>
+                        <option data-option="CharialiED">Jamuguri</option>
+                        <option data-option="CharialiED">GOHPUR</option>
+                        <option data-option="CharialiED">Sotia</option>
+                    </select>
+                  </div>
+                </select>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+    </form>
+    
+</div>
+
+{% endblock body %}
+
